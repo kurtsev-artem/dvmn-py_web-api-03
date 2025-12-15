@@ -22,7 +22,6 @@ def count_clicks(token, key):
     response = requests.get(service_url, params=payload)
     response.raise_for_status()
     counted_clicks = response.json()
-    print(counted_clicks)
     if 'error' in counted_clicks.keys():
         raise requests.exceptions.HTTPError(counted_clicks['error']['error_msg'])
     return str(counted_clicks['response']['stats'][0]['views'])
@@ -43,15 +42,10 @@ def main():
     token = os.environ['VK_TOKEN']
 
     parser = argparse.ArgumentParser()
-    parser.add_argument ('url', nargs='?')
-    namespace = parser.parse_args ()
-    
+    parser.add_argument('url', nargs='?')
+    namespace = parser.parse_args()
 
-    url = input('Input URL ')
-
-    print(namespace)
-
-    #url = namespace.url
+    url = namespace.url
     parsed_url = urlparse(url)
 
     if  is_shorten_link(token, parsed_url.path[1:]):
