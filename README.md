@@ -14,6 +14,7 @@ pip install -r requirements.txt
 ```
 
 Пример запуска  : C:\>python C:\python_scripts\dvmn-py_web-api-03.py ya.ru
+
 Вывод в консоль :  Сокращенная ссылка: https://vk.cc/8ATrT1
 
 ### Цель проекта
